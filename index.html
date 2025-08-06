@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentación NovaCare</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #d0e8d0; /* Verde pastel */
+      color: #000;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: 100%;
+      height: 100%;
+      padding: 60px;
+      transition: left 0.8s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .active {
+      left: 0;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 900px;
+      line-height: 1.8em;
+    }
+
+    .nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2em;
+      background-color: #a3cfa3;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      color: #000;
+    }
+
+    .nav-left {
+      left: 10px;
+    }
+
+    .nav-right {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide active">
+    <h1>Presentación del proyecto NovaCorp</h1>
+    <p>integrantes</p>
+    <p>alex daniel chavarria zuñiga</p>
+    <p>gerald edu piedra rivera</p>
+    <p>lex morales mora</p>
+  </div>
+  <div class="slide">
+    <h1>Desarrollo</h1>
+    <p>NovaCare es un dispositivo en forma de reloj inteligente que monitorea signos vitales (frecuencia cardíaca, presión, sueño, oxigenación, etc.) y los transmite en tiempo real a una app vinculada en el celular de un familiar o cuidador. Esta solución permite que estudiantes de secundaria u otras personas jóvenes puedan cuidar a sus seres queridos (como abuelos o personas enfermas) sin necesidad de estar físicamente presentes todo el tiempo.
+    <br><br>
+    Además de brindar datos en tiempo real, el reloj genera alertas automáticas ante anomalías (por ejemplo, una caída o pulso anormal), lo que permite actuar rápidamente y salvar vidas. Su enfoque humano, tecnológico y accesible lo convierte en una innovación que une a las familias a través del cuidado.</p>
+  </div>
+  <div class="slide">
+    <h1>Visión</h1>
+    <p>Ser una empresa líder en el desarrollo de soluciones tecnológicas accesibles y humanas, que permitan a personas jóvenes, especialmente estudiantes, cuidar y monitorear el estado de salud de sus seres queridos desde cualquier lugar, brindando tranquilidad, prevención y conexión emocional entre generaciones.</p>
+  </div>
+  <div class="slide">
+    <h1>Misión</h1>
+    <p>Desarrollar dispositivos inteligentes que mejoren la calidad de vida de adultos mayores y personas con condiciones médicas, permitiendo que sus familias, especialmente jóvenes y estudiantes, puedan acompañarlos, vigilarlos y asistirlos desde una aplicación móvil de forma práctica, emocionalmente significativa y tecnológicamente eficiente.</p>
+  </div>
+  <div class="slide">
+    <h1>Objetivos</h1>
+    <p><strong>Objetivo general:</strong> Diseñar un reloj inteligente funcional que permita el monitoreo remoto de signos vitales, conectando al usuario con familiares o cuidadores, brindando seguridad, salud preventiva y cercanía emocional.
+    <br><br>
+    <strong>Objetivos específicos:</strong><br>
+    - Desarrollar una aplicación móvil intuitiva que permita ver los datos en tiempo real desde otro celular.<br>
+    - Integrar un sistema de alertas automáticas que notifique caídas o anomalías vitales.<br>
+    - Validar el funcionamiento mediante pruebas controladas con usuarios y estudiantes cuidadores.</p>
+  </div>
+  <div class="slide">
+    <h1>¿En qué ayuda?</h1>
+    <p>Salud preventiva y seguridad: El reloj monitorea constantemente los signos vitales de personas adultas mayores o con condiciones especiales, permitiendo detectar a tiempo cualquier irregularidad como caídas, presión anormal o ritmo cardíaco fuera de rango. Esto puede salvar vidas al actuar rápidamente.</p>
+  </div>
+  <div class="slide">
+    <h1>¿Por qué deberían comprarnos?</h1>
+    <p>
+      - Es fácil de usar.<br>
+      - Brinda tranquilidad a distancia.<br>
+      - Detecta emergencias al instante.<br>
+      - Permite cuidar a tus seres queridos en todo momento.<br>
+      - Es accesible y útil para todos.
+    </p>
+  </div>
+  <div class="slide">
+    <h1>Conclusión</h1>
+    <p>NovaCare es mucho más que un reloj: es un puente entre generaciones. Es una herramienta tecnológica diseñada con el corazón, pensada para que el amor y el cuidado no tengan barreras físicas. Permite que jóvenes como nosotros cuidemos a quienes más amamos, aunque estemos lejos. Es un paso hacia una sociedad más empática, conectada y segura.</p>
+  </div>
+
+  <button class="nav nav-left" onclick="prevSlide()">⟵</button>
+  <button class="nav nav-right" onclick="nextSlide()">⟶</button>
+
+  <script>
+    let slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    function showSlide(i) {
+      slides.forEach((slide, j) => {
+        slide.classList.remove('active');
+        if (j === i) slide.classList.add('active');
+      });
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }
+
+    function prevSlide() {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    }
+  </script>
+</body>
+</html>
